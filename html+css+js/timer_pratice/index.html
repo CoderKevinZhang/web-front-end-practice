@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Timer Pratice</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var textObject = document.getElementById('text');
+			alert(textObject.innerHTML.split('').reverse().join(''));
+		}
+	</script>
+</head>
+<body>
+	<div id="text">Hello World!</div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Timer Pratice</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var obj = document.getElementById('timer');
+			var spanObj = document.getElementById('num');
+
+			var i = 5;
+			setInterval(function(){
+				i--;
+				spanObj.innerHTML = i;
+				if(i == 1){
+					location.assign('http://www.baidu.com')
+				}
+			}, 1000)
+		}
+	</script>
+</head>
+<body>
+<h1 id="timer">出错啦！还有<span id="num">5</span>秒返回首页</h1>
+</body>
+</html> -->

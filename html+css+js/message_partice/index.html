@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Message Pratice</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*CSS Display*/
+		#box{
+			width: 500px;
+			height: 300px;
+			background: #ccc;
+			border: 2px solid blue;
+			margin: 0 auto;
+			padding-left: 5px;
+			padding-top: 5px;
+			overflow: auto;
+		}
+
+		/*CSS Message*/
+		#box .msg{
+			font-size: 20px;
+			line-height: 30px;
+			font-weight: 10px;
+		}
+
+		/*CSS Input*/
+		#text{
+			display: block;
+			width: 500px;
+			height: 100px;
+			margin: 5px auto;
+			border: 2px solid orange;
+		}
+
+		#btn_sub{
+			margin-left: 500px;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			document.getElementById('btn_sub').onclick = function(){
+
+				// get data from textarea and put it into display table
+				var msgObj = document.getElementById('text');
+
+				if(msgObj.value == '100 words limit'){
+					alert('Please Enter Contents')
+				}
+				else{
+					var newObj = document.createElement('p');
+					newObj.setAttribute('class', 'msg');
+					newObj.innerHTML = msgObj.value;
+
+					var parentObj = document.getElementById('box');
+					parentObj.insertBefore(newObj, parentObj.childNodes[1])
+
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<p class="msg">soaijoijfs</p>
+		<p class="msg">soaijoijfs</p>
+		<p class="msg">soaijoijfs</p>
+	</div>
+	<textarea id="text" onfocus="if(value == '100 words limit'){ value = ''}" onblur="if (value=='') {value='100 words limit'}">100 words limit</textarea>
+	<input type="button" name="submit" id="btn_sub" value="submit">
+</body>
+</html>
+
+
+
+

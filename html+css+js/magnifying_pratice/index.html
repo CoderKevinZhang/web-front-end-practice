@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magnifying Images</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+
+		#box{
+			float: left;
+			width: 400px;
+			height: 400px;
+			border: 1px solid red;
+			background: url(images/400.jpg) no-repeat;
+			position: relative;
+		}
+
+		#box #cover{
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background-color: white;
+			opacity: 0.7;
+			display: none;
+		}
+
+		#box #lid{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: red;
+			opacity: 0;
+			top: 0px;
+			left: 0px;
+		}
+
+		#box2{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			float: left;
+			margin: 20px;
+			border: 1px solid black;
+			overflow: hidden;
+			display: none;
+		}
+
+		#box2 img{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var coverObj = document.getElementById('cover'); // get the Object of 'cover'
+			var lidObj = document.getElementById('lid'); // get the Object of 'lid'
+			var box2Obj = document.getElementById('box2'); // get the Object of 'box2'
+			var imgObj = document.getElementById('mg_image'); // get the Object of 'mg_image'
+
+			lidObj.onmouseover = function(){ // give 'lid' div a onmouseover event
+				coverObj.style.display = 'block';
+				box2Obj.style.display = 'block';
+			}
+
+			lidObj.onmouseout = function(){ // give 'lid' div a onmouseout event
+				coverObj.style.display = 'none';
+				box2Obj.style.display = 'none';
+			}
+
+			lidObj.onmousemove = function(e){ // give 'lid' div a onmousemove event
+
+				var ev = window.event || e; // get the onmousemove event (IE || Google)
+
+				var mouse_top = ev.offsetY || ev.layerY; // get the current top distance of mouse (IE || Google)
+				var mouse_left = ev.offsetX || ev.layerX; // get the current left distance of mouse (IE || Google)
+
+				var cover_top = mouse_top - 100; // the current top distance from the center position of 'cover'
+				var cover_left = mouse_left - 100; // the current left distance from the center position of 'cover'
+
+				// set the boundary of 'cover' div
+				if(cover_top < 0){
+					cover_top = 0;
+				}
+				if(cover_top > 200){
+					cover_top = 200;
+				}
+				if(cover_left < 0){
+					cover_left = 0;
+				}
+				if(cover_left > 200){
+					cover_left = 200
+				}
+
+				coverObj.style.top = cover_top + 'px';
+				coverObj.style.left = cover_left + 'px';
+
+				imgObj.style.top = -2 * cover_top + 'px';
+				imgObj.style.left = -2 * cover_left + 'px';
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="cover"></div>
+		<div id="lid"></div>
+	</div>
+
+	<div id="box2">
+		<img src="images/800.jpg" id="mg_image">
+	</div>
+</body>
+</html>

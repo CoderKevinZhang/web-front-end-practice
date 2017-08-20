@@ -1,0 +1,223 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+#side_bar{
+	position: fixed;
+	width: 35px;
+	background-color: #000;
+	min-height: 100%;
+	top: 0px;
+	right: 0px;
+}
+
+#side_bar .marginstyle{
+	margin: 8px 0px;
+}
+
+#side_bar .box{
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+#side_bar .box .side-text{
+	position: absolute;
+	right: 70px;
+	top: -1px;
+	width: 90px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	color: #fff;
+	background-color: #494949;
+	z-index: 9;
+	font-size: 12px;
+	display: none;
+}
+
+#side_bar .box .crr{
+	position: absolute;
+	top: 5px;
+	left: -41px;
+	z-index: 1;
+	color: #494949;
+	display: none;
+}
+
+#side_bar .carstyle {
+	position: relative;
+	width: 35px;
+	height: 100px;
+}
+
+#side_bar #prof{
+	position: relative;
+	background: url(../images/prof.png) no-repeat;
+	background-size: 35px 35px;
+	margin: 144px 0px 0px;
+}
+
+#side_bar #shopping_car{
+	cursor: pointer;
+}
+
+#side_bar #shopping_car .car-logo{
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	background: url(../images/shopcar.png) no-repeat;
+	background-size: 35px 35px;
+	top: 10px;
+	left: 0px;
+}
+
+#side_bar #shopping_car .car-text{
+	position: absolute;
+	display: block;
+	left: 7px;
+	top: 40px;
+	width: 20px;
+	height: 50px;
+	line-height: 16px;
+	overflow: hidden;
+	padding: 0;
+	font-size: 12px;
+	text-align: center;
+	color: #fff;
+}
+
+#side_bar #shopping_car .car-border{
+	position: absolute;
+	width: 25px;
+	height: 98px;
+	top: 0px;
+	left: 5px;
+	border: 1px solid #444;
+	border-width: 1px 0px;
+}
+
+#side_bar #shopping_car .car-logo-on{
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	background: url(../images/shopcar_on.png) no-repeat;
+	background-size: 35px 35px;
+	top: 10px;
+	left: 0px;
+}
+
+#side_bar #asset{
+	position: relative;
+	background: url(../images/asset.png) no-repeat;
+	background-size: 35px 35px;
+}
+
+#side_bar #love{
+	position: relative;
+	background: url(../images/love.png) no-repeat;
+	background-size: 35px 35px;
+}
+
+#side_bar #star{
+	position: relative;
+	background: url(../images/star.png) no-repeat;
+	background-size: 35px 35px;
+}
+
+#side_bar #history{
+	position: relative;
+	background: url(../images/history.png) no-repeat;
+	background-size: 35px 35px;
+}
+
+#side_bar #chong{
+	position: relative;
+	background: url(../images/chong.png) no-repeat;
+	background-size: 35px 35px;
+}
+
+#side_bar #feedback{
+	position: absolute;
+	bottom: 70px;
+	left: 0px;
+	background: url(../images/feedback.png) no-repeat;
+	background-size: 35px 35px;
+}
+
+#side_bar #qr_code{
+	position: absolute;
+	bottom: 35px;
+	left: 0px;
+	background: url(../images/qrcode.png) no-repeat;
+	background-size: 35px 35px;
+}
+
+#side_bar #top_back{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	background: url(../images/top.png) no-repeat;
+	background-size: 35px 35px;
+}
+
+#side_bar #login{
+	width: 350px;
+	height: 400px;
+	overflow: hidden;
+	background: #fafafa;
+	padding-top: 50px;
+}
+
+#side_bar .loginstyle{
+	position: absolute;
+	top: 0px;
+	right: 35px;
+	z-index: 999999;
+	cursor: default;
+	border: 1px solid #D1D1D1;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: rgb(209, 209, 209);
+	border-right: 0;
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,.4);
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,.4);
+	box-shadow: 0 0 5px rgba(0,0,0,.4);
+	-webkit-transform: translateZ(0);
+	-webkit-user-select: none;
+}
+
+#side_bar .close-logo{
+	position: absolute;
+	display: block;
+	top: 20px;
+	right: 10px;
+	z-index: 999999;
+	width: 11px;
+	height: 11px;
+	font-size: 1px;
+	cursor: pointer;
+	background: url(../images/close.png) no-repeat;
+	background-size: 11px 11px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

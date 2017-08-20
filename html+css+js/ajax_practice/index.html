@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>AJAX Practice</title>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').click(function(){
+				$.ajax({
+					url: 'deal.php',
+					type: 'post',
+					data: {'name': 'Kaijun', 'waihao': 'good'},
+					dataType: 'json',
+					success: function(re){
+						alert(re);
+					}
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+<input type="button" id="btn" value="点我异步操作">
+</body>
+</html>

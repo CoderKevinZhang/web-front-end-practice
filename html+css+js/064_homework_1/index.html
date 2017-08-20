@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Photo Movement</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		#box{
+			position: relative;
+			width: 90%;
+			height: 500px;
+			border: 1px solid blue;
+			margin: 10px auto;
+		}
+
+		#box #photo{
+			position: absolute;
+			display: block;
+			width: 200px;
+			margin-left: 1px;
+			margin-top: 1px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var boxObj = document.getElementById('box');
+			var photoObj = document.getElementById('photo');
+			var left = 1, top = 1;
+
+			setInterval(move, 10);
+
+			function move(){
+				var photo_oldLeft = photoObj.offsetLeft;
+				if(photo_oldLeft == 0 || photo_oldLeft == boxObj.offsetWidth - photoObj.offsetWidth){
+					left = left * -1;
+				}
+				var photo_newLeft = photo_oldLeft + 1*left;
+				photoObj.style.marginLeft = photo_newLeft + 'px';
+
+				var photo_oldTop = photoObj.offsetTop;
+				if(photo_oldTop == 0 || photo_oldTop == boxObj.offsetHeight - photoObj.offsetHeight){
+					top = top * -1;
+				}
+				var photo_newTop = photo_oldTop + 1*top;
+				photoObj.style.marginTop = photo_newTop + 'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<img src="123.png" id="photo">
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+@mixin triangle(){
+  bottom:0;
+  width:0;
+  height:0;
+  border-top:50px solid transparent;
+  border-bottom:50px solid transparent;
+}
+
+@mixin round($radius){
+  position:absolute;
+  top:138px;
+  left:50%;
+  width:$radius;
+  height:$radius;
+  border-radius:50%;
+}

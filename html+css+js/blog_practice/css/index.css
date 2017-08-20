@@ -1,0 +1,229 @@
+body{
+	background-color: rgb(230, 237, 234);
+}
+
+a{
+	text-decoration: none;
+	background-color: transparent;
+}
+
+header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 85px;
+	background-color: rgb(230, 237, 234);
+	opacity: 0;
+	z-index: 9;
+}
+
+header nav{
+	width: 1403px;
+	height: 85px;
+	margin: 0 20px;
+	line-height: 85px;
+}
+
+header nav .menu{
+	width: 100px;
+	height: 85px;
+	padding-left: 28px;
+	float: left;
+	cursor: pointer;
+}
+
+header nav .menu p{
+	display: inline;
+	margin-left: 10px;
+}
+
+header nav .menu-icon{
+	position: absolute;
+	top: 5px;
+	right: 20px;
+	width: 100px;
+	height: 85px;
+	float: left;
+}
+
+header nav .menu-icon img{
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+#content{
+	position: relative;
+	width: 1403px;
+	height: 696px;
+	margin-top: 20px;
+	margin-left: 20px;
+	z-index: 1;
+}
+
+#content #img1{
+	background: url(../images/main_1.jpg) no-repeat;
+	background-size: 1403px 696px;
+}
+
+#content #img2{
+	background: url(../images/main_2.jpg) no-repeat;
+	background-size: 1403px 696px;
+}
+
+#content #img3{
+	background: url(../images/main_3.jpg) no-repeat;
+	background-size: 1403px 696px;
+}
+
+#content #img4{
+	background: url(../images/main_4.jpg) no-repeat;
+	background-size: 1403px 696px;
+}
+
+#content .main-image{
+	position: absolute;
+	width: 1403px;
+	height: 696px;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+#content #left-pannel{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#content .p-style{
+	width: 50%;
+	height: 696px;
+	background-color: black;
+	opacity: 0;
+}
+
+#content #left-item{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#content #right-pannel{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#content #right-item{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#content .i-style{
+	width: 50%;
+	height: 696px;
+	text-align: center;
+}
+
+#content .i-style .title{
+	display: block;
+	font-size: 62px;
+	font-family: 'Finger Paint', cursive;
+	color: white;
+	margin-top: 300px;
+	opacity: 0;
+}
+
+#content .cover{
+	width: 358px;
+	border-top: 2px solid white;
+	padding: 12px 10px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-columns: 3;
+	   -moz-columns: 3;
+	        columns: 3;
+	margin: 0 auto;
+	opacity: 0;
+}
+
+#content .cover a{
+	text-align: center;
+	display: block;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.02em;
+	cursor: pointer;
+	-webkit-box-flex: 0;
+	    -ms-flex: 0 1 33.3%;
+	        flex: 0 1 33.3%;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	color: white;
+
+}
+
+#content .center-pannel{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1403px;
+	height: 696px;
+	text-align: center;
+	color: white;
+	font-family: 'Finger Paint', cursive;
+
+}
+
+#content .center-pannel .main-logo{
+	position: absolute;
+	top: 50px;
+	left: 671.5px;
+	width: 60px;
+	height: 60px;
+	background: url('https://www.jardan.com.au/wp-content/themes/jardan/images/branding/jardan_logo_white.svg') no-repeat;
+}
+
+#content .center-pannel h1{
+	position: absolute;
+	top: 280px;
+	left: 530px;
+	font-size: 60px;
+	font-weight: 100;
+}
+
+#content .center-pannel img{
+	display: block;
+	position: absolute;
+	top: 580px;
+	left: 620px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

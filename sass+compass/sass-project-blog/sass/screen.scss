@@ -1,0 +1,89 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3", "normalize";
+
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body{
+  background:{
+    color: rgb(230, 237, 234);
+  }
+}
+
+.nav-nar{
+  display: none;
+  background-color: rgb(230, 237, 234);
+  height: 80px;
+  line-height: 80px;
+  @at-root {
+    .menu{
+      float: left;
+      a{
+        text-decoration: none;
+        color: black;
+      }
+
+      img{
+        margin:{
+          left: 20px;
+          right: 20px;
+        }
+      }
+    }
+
+    .menu-icon{
+      float: right;
+
+      img{
+        margin:{
+          right: 20px;
+        }
+      }
+    }
+  }
+}
+
+.content{
+  position: relative;
+  width: 100%;
+  @at-root {
+    .main-image{
+      position: absolute;
+      width: 1400px;
+      height: 710px;
+      top:10px;
+      left:20px;
+      display: none;
+      overflow: hidden;
+    }
+
+    $image_size: 1400px 714px;
+    .main-image:nth-child(1){
+      background: url("../images/main_1.jpg") no-repeat;
+      @include background-size(#{$image_size});
+    }
+
+    .main-image:nth-child(2){
+      background: url("../images/main_2.jpg") no-repeat;
+      @include background-size(#{$image_size});
+    }
+
+    .main-image:nth-child(3){
+      background: url("../images/main_3.jpg") no-repeat;
+      @include background-size(#{$image_size});
+    }
+
+    .main-image:nth-child(4){
+      background: url("../images/main_4.jpg") no-repeat;
+      @include background-size(#{$image_size});
+    }
+
+  }
+}

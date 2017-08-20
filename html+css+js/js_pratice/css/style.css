@@ -1,0 +1,147 @@
+/*Global reset*/
+*{
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+}
+
+/*Global 'a' tag reset*/
+a{
+	text-decoration: none;
+}
+
+.pdleft12{
+	padding-left: 12px;
+}
+
+.pdleft5{
+	padding-left: 5px;
+}
+
+.c8{
+	color: #808080;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+/*top css*/
+#top_bg{
+	width: 100%;
+	height: 33px;
+	background: url(../images/top.jpg) repeat-x;
+}
+
+#top_bg #top_ct{
+	width: 1200px;
+	height: 33px;
+	margin: 0 auto;
+}
+
+#top_bg #top_ct .toptoright{
+	line-height: 32px;
+	float: right;
+}
+
+#top_bg #top_ct .toptoright .myorder:hover{
+	color: red;
+}
+
+#top_bg #top_ct .toptoright .announcement{
+	background: url(../images/notice.png) no-repeat 2px 5px;
+	display: inline-block;
+	padding-left: 26px;
+}
+
+#top_bg #top_ct .toptoright .announcement:hover{
+	color: red;
+}
+
+#top_bg #top_ct .toptoright #weixin{
+	display: block;
+	float: right;
+	margin-top: 7px;
+	margin-left: 14px;
+	margin-right: 3px;
+}
+
+#top_bg #top_ct .toptoright #weixin:hover{
+	cursor: pointer;
+}
+
+#top_bg #top_ct .toptoright #weibo{
+	display: block;
+	float: right;
+	margin-top: 7px;
+	margin-right: 0;
+}
+
+#top_bg #top_ct .toptoright #weibo:hover{
+	cursor: pointer;
+}
+
+/*top css end*/
+
+/*search css*/
+#search{
+	width: 1200px;
+	height: 62px;
+	margin: 20px auto 25px;
+}
+
+#search .vansearch{
+	width: 438px;
+	padding-top: 8px;
+}
+
+#search .vansearch .searchtab{
+	height: 29px;
+}
+
+#search .vansearch .searchtab .search_input .bar{
+	width: 249px;
+	height: 27px;
+	padding: 0px 5px;
+	line-height: 27px;
+	border: 1px solid #c9caca;
+}
+
+#search .vansearch .searchtab .search_input #searchIcon{
+	width: 49px;
+	height: 29px;
+	border: none;
+	cursor: pointer;
+	margin-left: 0;
+	background: url(../images/vanclsprite.png) no-repeat -100px 0px;
+}
+
+#search .vansearch .searchtab .shop_car .shopCar{
+	display: block;
+	width: 105px;
+	height: 27px;
+	border: 1px solid #c1383e;
+	background: url(http://i2.vanclimg.com/cms/20150228/vanclsprite.png) no-repeat -154px 0px;
+}
+
+#search .vansearch .searchtab .shop_car .shopCar span{
+	display: block;
+	padding-left: 29px;
+	padding-top: 6px;
+	font-size: 12px;
+	color: #ffffff;
+}
+
+#search .vansearch .hotword{
+	width: 440px;
+	padding-top: 5px;
+	line-height: 18px;
+	color: #727171;
+	padding-left: 15px;
+}
+
+/*search css end*/

@@ -1,0 +1,262 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3", "normalize";
+@import "partials/mixin";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+*{
+  text-transform: uppercase;
+}
+
+*:before, *:after{
+  position: absolute;
+  content:'';
+}
+
+html,body{
+  height:100%;
+  overflow:hidden;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bea2e7+0,86b7e7+100 */
+  background: #1E2D3F; /* Old browsers */
+  background: -moz-linear-gradient(top,  #1E2D3F 0%, #446181 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #1E2D3F 0%,#446181 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #1E2D3F 0%,#446181 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1E2D3F', endColorstr='#446181',GradientType=0 ); /* IE6-9 */
+}
+
+.loading{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 60px;
+  height: 50px;
+
+  i{
+    display: block;
+    height: 50px;
+    width: 6px;
+    margin: 0 2px;
+    float: left;
+    background-color: white;
+  }
+
+  i:nth-child(1), i:nth-child(6){
+    @include animation(load-1 1s infinite)
+  }
+
+  i:nth-child(2), i:nth-child(5){
+    @include scaleY(0.6);
+    //@include animation(load-2 1s infinite)
+  }
+  i:nth-child(3), i:nth-child(4){
+    @include scaleY(0.3);
+    @include animation(load-3 1s infinite)
+  }
+}
+
+@include keyframes(load-1){
+  0%, 100%{
+    @include scaleY(1);
+  }
+
+  50%{
+    @include scaleY(0.3);
+  }
+}
+
+//@include keyframes(load-2){
+//  0%, 100%{
+//    @include scaleY(6);
+//  }
+//
+//  50%{
+//    @include scaleY(0.3);
+//  }
+//}
+
+@include keyframes(load-3){
+  0%, 100%{
+    @include scaleY(0.3);
+  }
+
+  50%{
+    @include scaleY(1);
+  }
+}
+
+.stars, .twinkling, .clouds {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.stars {
+  background: url("../images/stars.png") repeat top center;
+  z-index:0;
+  opacity: 0;
+  @include animation(starshine 0.5s infinite alternate);
+  @include animation-delay(1s);
+}
+
+@include keyframes(starshine){
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 1;
+  }
+}
+
+.clouds{
+  background:transparent url("../images/clouds4.png") repeat top center;
+  z-index:3;
+  -moz-animation:move-clouds-back 200s linear infinite;
+  -o-animation:move-clouds-back 200s linear infinite;
+  -webkit-animation:move-clouds-back 200s linear infinite;
+  animation:move-clouds-back 200s linear infinite;
+}
+
+@keyframes move-clouds-back {
+  from {background-position:0 0;}
+  to {background-position:10000px 0;}
+}
+@-webkit-keyframes move-clouds-back {
+  from {background-position:0 0;}
+  to {background-position:10000px 0;}
+}
+@-moz-keyframes move-clouds-back {
+  from {background-position:0 0;}
+  to {background-position:10000px 0;}
+}
+
+.yellow-round{
+  @include round(400px);
+  margin-left: -1500px;
+  //margin-left:-200px;
+  background:{
+    color:rgb(231,167,74);
+  }
+}
+
+.black-round{
+  @include round(396px);
+  top:143px;
+  margin-left: 1000px;
+  //margin-left:-180px;
+  background:{
+    color:rgb(43,50,55);
+  }
+
+}
+
+.lid-round{
+  @include round(400px);
+  margin-left:-200px;
+  text-align: center;
+  @at-root {
+    .round-title{
+      margin-top: 100px;
+      color: white;
+      font:{
+        size: 2.0em;
+      }
+      display: none;
+    }
+
+    .round-content{
+      position: absolute;
+      top: 260px;
+      left: 56px;
+      color: rgb(231,167,74);
+      font:{
+        size: 1.2em;
+      }
+      letter-spacing: 5px;
+      display: none;
+    }
+
+    .round-content:after{
+      top:35px;
+      left: 50%;
+      margin-left: -50px;
+      width:100px;
+      height:10px;
+      border:{
+        top: 3px solid white;
+      };
+    }
+  }
+}
+
+.triangle-up {
+  position: absolute;
+  top:290px;
+  left: 50%;
+  margin-left: -275px;
+  width: 550px;
+  height: 100px;
+  line-height:100px;
+  border-radius:10px;
+  background-color: rgb(84,103,114);
+  text-transform:uppercase;
+  text-align:center;
+  color:white;
+  span{
+    font:{
+      size:3.5em;
+      weight:bold;
+    }
+
+  }
+  display: none;
+}
+
+.triangle-up:before{
+  @include triangle();
+  left:0;
+  border-left:20px solid rgb(49,71,96);
+}
+
+.triangle-up:after{
+  @include triangle();
+  right:0;
+  border-right:20px solid rgb(49,71,96);
+}
+
+.yellow-panel{
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  height:100%;
+  background-color: rgb(231,167,74);
+  @at-root {
+    .dark-blue-round{
+      $radius: 1px;
+      @include round($radius);
+      margin-left: -($radius/2);
+      top: 50%;
+      margin-top: -($radius/2);
+      background:{
+        color: rgb(43,50,55);
+      }
+    }
+  }
+}
+

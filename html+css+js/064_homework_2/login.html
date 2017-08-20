@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login Page</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+
+		#box{
+			position: relative;
+			width: 500px;
+			height: 300px;
+			margin: 0 auto;
+			overflow: auto;
+		}
+
+		#btn{
+			position: absolute;
+			display: block;
+			margin-left: 200px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var boxObj = document.getElementById('box'); // get the Object of 'box' div
+			var boxHeight = boxObj.offsetHeight; // get the height of 'box' div
+			var visableHeight = document.documentElement.clientHeight; // get the visable height of the broswer
+
+			var centerPosition = (visableHeight - boxHeight) / 2; // the center marginTop Position
+
+			boxObj.style.marginTop = centerPosition + 'px';
+			boxObj.style.border = '1px solid blue';
+
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。这是张凯君，我很喜欢棒球。
+	</div>
+
+	<input type="button" id="btn" value="TOP">
+</body>
+</html>

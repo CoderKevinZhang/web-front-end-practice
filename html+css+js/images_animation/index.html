@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Images Animation</title>
+
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+
+		#box{
+			position: relative;
+			width: 1200px;
+			height: 535px;
+			margin: 5px auto;
+			overflow: hidden;
+		}
+
+		#box img{
+			position: absolute;
+			display: none;
+			top: 0;
+			left: 0;
+			cursor: pointer;
+		}
+
+		#box #arrowLeft{
+			position: absolute;
+			width: 28px;
+			height: 60px;
+			background: url(images/arrow.png) no-repeat -3px -7px;
+			top: 236px;
+			left: 14px;
+			cursor: pointer;
+		}
+
+		#box #arrowRight{
+			position: absolute;
+			width: 28px;
+			height: 60px;
+			background: url(images/arrow.png) no-repeat -60px -7px;
+			top: 236px;
+			left: 1170px;
+			cursor: pointer;
+		}
+
+		#box #round_dot{
+			position: absolute;
+			top: 500px;
+			left: 488px;
+		}
+
+		#box #round_dot .dot{
+			width: 12px;
+			height: 12px;
+			overflow: hidden;
+			float: left;
+			display: inline;
+			margin-right: 8px;
+			cursor: pointer;
+			border-radius: 12px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function(){
+
+			var arrowLeft_Object = document.getElementById('arrowLeft'); // get the Object of left arrow
+			var arrowRight_Object = document.getElementById('arrowRight'); // get the Object of right arrow
+			var dots_Object = document.getElementsByClassName('dot'); // get the Objects of class 'dot' (dots_Object is an array)
+			var box_Object = document.getElementById('box'); // get the Object of 'box'
+			var imgs = document.getElementById('box').getElementsByTagName('img'); // get the Objects of tag img
+			var num = dots_Object.length; // get the total length of dots_Object array
+
+			var cur = 0; // set a calculater start from 0
+			var myval = setInterval(autoRun_Right, 2000);
+
+			box_Object.onmouseover = function(){
+				clearInterval(myval);
+			}
+			box_Object.onmouseout = function(){
+				myval = setInterval(autoRun_Right, 2000);
+			}
+
+			arrowLeft_Object.onmouseover = function(){
+				arrowLeft_Object.style.background = 'url(images/arrow.png) no-repeat -3px -67px'; // turn the color of left arrow into red when mouse is moved on the left arrow
+			}
+			arrowLeft_Object.onmouseout = function(){
+				arrowLeft_Object.style.background = 'url(images/arrow.png) no-repeat -3px -7px'; // turn the color of left arrow into gray when mouse is moved out of the left arrow
+				clearInterval(myval);
+			}
+			arrowLeft_Object.onclick = function(){
+				clearInterval(myval);
+				autoRun_Left();
+			}
+
+			arrowRight_Object.onmouseover = function(){
+				arrowRight_Object.style.background = 'url(images/arrow.png) no-repeat -60px -67px'; // turn the color of right arrow into red when mouse is moved on the right arrow
+			}
+
+			arrowRight_Object.onmouseout = function(){
+				arrowRight_Object.style.background = 'url(images/arrow.png) no-repeat -60px -7px';
+				// turn the colot of right arrow into gray when mouse is moved out of the right arrow
+				clearInterval(myval);
+			}
+			arrowRight_Object.onclick = function(){
+				clearInterval(myval);
+				autoRun_Right();
+			}
+
+			for(var i=0; i<num; i++){ // add onmouseover event on every class 'dot'
+				dots_Object[i].onmouseover = function(e){
+
+					clearInterval(myval); // stop interval
+
+					var ev = window.event || e; // get the onmouseover event (IE || Google)
+					var curObj = ev.srcElement || ev.target; // get the current Object when mouse is moved on it
+
+					for(var j=0; j<num; j++){
+						if(curObj === dots_Object[j]){
+							cur = j;
+						}
+					}
+					
+					var color_value = dots_Object[cur].getAttribute('style'); // get the current color of dot
+
+					if(color_value.slice(12, -1) != 'rgb(161, 0, 0)'){ // if color value is not again as same as the previous color of dot, displayCur function can be run. Just incase of the same onmouseover event happen on the same dot again and again
+						displayCur(cur);
+					}
+
+				}
+			}
+
+			for(var j=0; j<num; j++){ // add onmouseout event on every class 'dot'
+				dots_Object[j].onmouseout = function(e){
+					var ev = window.event || e;
+					var leaveObject = ev.srcElement || ev.target;
+
+					for(var j=0; j<num; j++){
+						if(leaveObject === dots_Object[j]){
+							cur = j;
+						}
+					}
+
+					myval = setInterval(autoRun_Right, 2000);
+				}
+			}
+
+			/*
+				autoRun_Right() function: every 5 second show one img and light one dot
+			*/
+			function autoRun_Right(){
+
+				cur++;
+				displayCur(cur);
+				
+				if(cur == num){ // if cur = 8, let cur = 0
+					cur = 0;
+				}
+			}
+
+			/*
+				autoRun_Left() function: every 5 second show one previous img and light one dot
+			*/
+			function autoRun_Left(){
+
+				cur--;
+				if(cur < 0){ // if cur < 0, let cur = 7
+					cur = num - 1;
+				}
+				displayCur(cur);
+				
+			}
+
+			/*
+				displayCur(cur) function: display current img and dot
+			*/
+			function displayCur(cur){
+
+				if(cur == num){
+					cur = 0;
+				}
+
+				for(var i=0; i<num; i++){
+					imgs[i].style.display = 'none'; // display none all of the imgs
+					dots_Object[i].style.background = '#dddddd'; // turn all of the color of dots into gray
+				}
+
+				var op = 0; // set the start value of opacity
+				imgs[cur].style.display = 'block'; // display the current img
+				imgs[cur].style.opacity = op; // set the current img opacity to 0
+				var endval = setInterval(function(){
+					op = op + 0.1;
+					if(op >= 1){
+						op = 1;
+						clearInterval(endval);
+					}
+					imgs[cur].style.opacity = op;
+				}, 50);
+				dots_Object[cur].style.background = '#a10000'; // only turn the color of current dot into red
+			}
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<img src="images/image1.jpg" style="display: block;">
+		<img src="images/image2.jpg">
+		<img src="images/image3.jpg">
+		<img src="images/image4.jpg">
+		<img src="images/image5.jpg">
+		<img src="images/image6.jpg">
+		<img src="images/image7.jpg">
+		<img src="images/image8.jpg">
+		<div id="arrowLeft"></div>
+		<div id="arrowRight"></div>
+		<ul id="round_dot">
+			<li class="dot" style="background: #a10000;"></li>
+			<li class="dot" style="background: #dddddd;"></li>
+			<li class="dot" style="background: #dddddd;"></li>
+			<li class="dot" style="background: #dddddd;"></li>
+			<li class="dot" style="background: #dddddd;"></li>
+			<li class="dot" style="background: #dddddd;"></li>
+			<li class="dot" style="background: #dddddd;"></li>
+			<li class="dot" style="background: #dddddd;"></li>
+		</ul>
+
+	</div>
+</body>
+</html>

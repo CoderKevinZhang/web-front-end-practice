@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tag Page Pratice</title>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+
+		#box{
+			width: 90%;
+			height: 500px;
+			border: 2px solid blue;
+			margin: 5px auto;
+			position: relative;
+		}
+
+		#box .headBar .list{
+			list-style: none;
+			width: 20%;
+			height: 50px;
+			line-height: 50px;
+			float: left;
+			text-align: center;
+		}
+
+		#box .content{
+			position: absolute;
+			width: 95%;
+			height: 440px;
+			background: green;
+			top: 52px;
+			left: 32px;
+			color: white;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		// window.onload = function(){
+		// 	var lists = document.getElementsByClassName('list'); // get all lists objects
+		// 	var contents = document.getElementsByClassName('content'); // get all contents objects
+		// 	for(var i=0; i<lists.length; i++){
+
+		// 		// 'onmouseover' Event
+		// 		lists[i].onmouseover = function(e){
+		// 			var event = window.event || e; // get the object of 'onmouseover' event
+		// 			var curObj = event.srcElement || event.target; // get the current event source
+
+		// 			curObj.style.background = 'green';
+		// 			curObj.style.color = 'white';
+
+		// 			var contentId;
+		// 			for(var j=0; j<lists.length; j++){
+		// 				if(curObj == lists[j]){
+		// 					contentId = 'content' + j; // get the current content id from headBar
+							
+		// 				}
+		// 			}
+
+		// 			var curContent = document.getElementById(contentId); // get the current content object
+
+		// 			for(var x=0; x<contents.length; x++){
+		// 				if(curContent === contents[x]){
+		// 					contents[x].style.display = 'block';
+		// 				}
+		// 				else{
+		// 					contents[x].style.display = 'none';
+		// 				}
+		// 			}
+
+		// 		}
+
+		// 		// 'onmouseout' Event
+		// 		lists[i].onmouseout = function(e){
+		// 			var event = window.event || e; // get the object of 'onmouseover' event
+		// 			var curObj = event.srcElement || event.target; // get the current event source
+
+		// 			curObj.style.background = 'white';
+		// 			curObj.style.color = 'black';
+		// 		}
+		// 	}
+		// }
+
+		$(function(){
+
+			var index_num = -1; // set the initial value of index
+
+			$('#box .headBar .list').mouseover(function(){ // set mouseover event on every <li>
+				index_num = $(this).index(); // get the current index of <li>
+
+				// change css style of current <li> 
+				$('#box .headBar .list').eq(index_num)
+										.css({'background':'green', 'color':'white'});
+
+				$('#box .content').eq(index_num).css('display', 'block'); // display the div content that is matched with the current <li>
+
+				$('#box .content').filter(function(index){ 
+					return index != index_num;
+				}).css('display', 'none'); // hide the divs that is not matched with the current <li>
+			});
+
+			$('#box .headBar .list').mouseout(function(){
+				index_num = $(this).index();
+				$('#box .headBar .list').eq(index_num)
+										.css({'background':'white', 'color':'black'});
+
+				
+			});
+
+
+		})
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul class="headBar">
+			<li class="list">首页</li>
+			<li class="list">音乐</li>
+			<li class="list">体育</li>
+			<li class="list">历史</li>
+			<li class="list">新闻</li>
+		</ul>
+
+		<div id="content0" class="content" style="display: block;">
+			首页区域
+		</div>
+		<div id="content1" class="content" style="display: none;">
+			音乐区域
+		</div>
+		<div id="content2" class="content" style="display: none;">
+			体育区域
+		</div>
+		<div id="content3" class="content" style="display: none;">
+			历史区域
+		</div>
+		<div id="content4" class="content" style="display: none;">
+			新闻区域
+		</div>
+	</div>
+</body>
+</html>
