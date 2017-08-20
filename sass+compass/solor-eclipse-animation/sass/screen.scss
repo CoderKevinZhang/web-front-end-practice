@@ -32,6 +32,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1E2D3F', endColorstr='#446181',GradientType=0 ); /* IE6-9 */
 }
 
+/* .loading --start */
 .loading{
   position: absolute;
   top: 0;
@@ -57,7 +58,6 @@ body {
 
   i:nth-child(2), i:nth-child(5){
     @include scaleY(0.6);
-    //@include animation(load-2 1s infinite)
   }
   i:nth-child(3), i:nth-child(4){
     @include scaleY(0.3);
@@ -75,16 +75,6 @@ body {
   }
 }
 
-//@include keyframes(load-2){
-//  0%, 100%{
-//    @include scaleY(6);
-//  }
-//
-//  50%{
-//    @include scaleY(0.3);
-//  }
-//}
-
 @include keyframes(load-3){
   0%, 100%{
     @include scaleY(0.3);
@@ -94,7 +84,9 @@ body {
     @include scaleY(1);
   }
 }
+/* .loading --end */
 
+/* .stars --start */
 .stars, .twinkling, .clouds {
   position:absolute;
   top:0;
@@ -145,7 +137,9 @@ body {
   from {background-position:0 0;}
   to {background-position:10000px 0;}
 }
+/* .stars --end */
 
+/* .yellow-round --start */
 .yellow-round{
   @include round(400px);
   margin-left: -1500px;
@@ -154,7 +148,9 @@ body {
     color:rgb(231,167,74);
   }
 }
+/* .yellow-round --end */
 
+/* .black-round --start */
 .black-round{
   @include round(396px);
   top:143px;
@@ -165,7 +161,9 @@ body {
   }
 
 }
+/* .black-round --end */
 
+/* .lid-round --start */
 .lid-round{
   @include round(400px);
   margin-left:-200px;
@@ -204,7 +202,9 @@ body {
     }
   }
 }
+/* .lid-round --end */
 
+/* .triangle-up --start */
 .triangle-up {
   position: absolute;
   top:290px;
@@ -239,7 +239,9 @@ body {
   right:0;
   border-right:20px solid rgb(49,71,96);
 }
+/* .triangle-up --end */
 
+/* .yellow-panel --start */
 .yellow-panel{
   position: absolute;
   bottom: 100%;
@@ -259,4 +261,5 @@ body {
     }
   }
 }
+/* .yellow-panel --end */
 

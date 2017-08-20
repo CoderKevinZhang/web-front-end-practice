@@ -1,4 +1,4 @@
-@mixin triangle(){
+@mixin triangle(){ // the common part of triangle
   bottom:0;
   width:0;
   height:0;
@@ -6,7 +6,7 @@
   border-bottom:50px solid transparent;
 }
 
-@mixin round($radius){
+@mixin round($radius){ // set a round with a radius as variable
   position:absolute;
   top:138px;
   left:50%;
