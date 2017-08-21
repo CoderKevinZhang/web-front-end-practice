@@ -1,17 +1,13 @@
 /* Base Application Styles */
 body {
   color: #fff;
-  background: #222;
-}
+  background: #222; }
 
 .index img {
   margin: 40px auto;
-  border:{
-    radius: 4px;
-  }
+  border-radius: 4px;
   background: #fff;
-  display: block;
-}
+  display: block; }
 
 .index .notice {
   margin: 20px auto;
@@ -19,5 +15,6 @@ body {
   text-align: center;
   border: 1px solid #000;
   border-width: 1px 0;
-  background: #666;
-}
+  background: #666; }
+
+/*# sourceMappingURL=App.css.map */
