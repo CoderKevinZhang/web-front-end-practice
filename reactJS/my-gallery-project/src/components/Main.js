@@ -9,7 +9,7 @@ import React from 'react';
 let imagesData = require('../data/imagesData.json');
 
 /* Use self-running function to let imagesData collect every image url*/
-imagesData = (function (imagesDataArray) {
+let imagesLinks = (function (imagesDataArray) {
   for(let i=0, j=imagesDataArray.length; i<j; i++){
     let singleImageData = imagesDataArray[i];
 
@@ -21,12 +21,37 @@ imagesData = (function (imagesDataArray) {
   return imagesDataArray;
 })(imagesData);
 
+class ImgFigure extends React.Component{
+  render(){
+    return (
+      <figure className="figure-layout">
+        <img src={this.props.data.imageURL} alt={this.props.data.title}/>
+        <figcaption>
+          <h2 className="img-title">{this.props.data.title}</h2>
+        </figcaption>
+      </figure>
+    );
+  }
+}
+
 class AppComponent extends React.Component {
   render() {
+
+    let imgFigures = [],
+        controlUnits = [];
+
+    imagesLinks.forEach(function (value) {
+      imgFigures.push(<ImgFigure data={value}/>)
+    });
+
     return (
       <section className="stage">
-        <section className="image-sec"></section>
-        <nav className="controller-nav"></nav>
+        <section className="image-sec">
+          {imgFigures}
+        </section>
+        <nav className="controller-nav">
+          {controlUnits}
+        </nav>
       </section>
     );
   }
