@@ -35,6 +35,7 @@ html, body{
       @at-root {
         /* figure-layout --start*/
         .figure-layout{
+          position: absolute;
           width: 320px;
           height: 360px;
           margin: 0;
