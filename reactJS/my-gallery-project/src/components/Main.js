@@ -2,6 +2,7 @@ require('normalize.css/normalize.css');
 require('styles/App.scss');
 
 import React from 'react';
+import ReactDOM from 'react-dom'; // It's important to add this line in order to use ReactDOM.findDOMNode
 
 // let yeomanImage = require('../images/yeoman.png');
 
@@ -23,8 +24,15 @@ let imagesLinks = ((imagesDataArray) => {
 
 class ImgFigure extends React.Component{
   render(){
+
+    let styleObject = {};
+
+    if(this.props.arrange.pos){
+      styleObject = this.props.arrange.pos;
+    }
+
     return (
-      <figure className="figure-layout">
+      <figure className="figure-layout" style={styleObject}>
         <img src={this.props.data.imageURL} alt={this.props.data.title}/>
         <figcaption>
           <h2 className="img-title">{this.props.data.title}</h2>
@@ -98,7 +106,7 @@ class AppComponent extends React.Component {
     });
 
     // set the position of left & right images
-    for(let i=0, j=imgsArrangeArr.length, k=j/2; i<k; i++){
+    for(let i=0, j=imgsArrangeArr.length, k=j/2; i<j; i++){
       let areaLeftorRight = [];
 
       if(i<k){
@@ -113,20 +121,31 @@ class AppComponent extends React.Component {
       }
     }
 
+    // put topImgArray and imgArrayCenter into imgsArrangeArr
+    if(topImgArray && topImgArray[0]){
+      imgsArrangeArr.splice(topImgIndex, 0, topImgArray[0]);
+    }
+    imgsArrangeArr.splice(centerIndex, 0, imgArrayCenter[0]);
+
+    // update the state of the component
+    this.setState({
+      imgsArrangeArr: imgsArrangeArr
+    });
+
   }
 
   //在首次实例化时初始化contans,为每张图片计算其位置范围
   componentDidMount() {
 
     //获取舞台的大小
-    let stageDOM = React.findDOMNode(this.refs.stage),
+    let stageDOM = ReactDOM.findDOMNode(this.refs.stage),
       stageW=stageDOM.scrollWidth,
       stageH=stageDOM.scrollHeight,
       halfStageW=Math.floor(stageW/2),
       halfStageH=Math.floor(stageH/2);
 
     //获取imgFigure的大小
-    let imgFigDOM = React.findDOMNode(this.refs.image_0),
+    let imgFigDOM = ReactDOM.findDOMNode(this.refs.image_0),
       imgFigW=imgFigDOM.scrollWidth,
       imgFigH=imgFigDOM.scrollHeight,
       halfImgW=Math.floor(imgFigW/2),
@@ -143,7 +162,7 @@ class AppComponent extends React.Component {
     this.Contans.hPosRange.rightSecX[0] = halfStageW + halfImgW;
     this.Contans.hPosRange.rightSecX[1] = stageW - halfImgW;
     this.Contans.hPosRange.y[0] = -halfImgH;
-    this.Contans.hPosRange.y[1] = halfStageH - halfImgH;
+    this.Contans.hPosRange.y[1] = stageH - halfImgH;
 
     //计算上区域的位置
     this.Contans.vPosRange.x[0] = halfStageW - halfImgW;
@@ -170,11 +189,11 @@ class AppComponent extends React.Component {
         }
       }
 
-      imgFigures.push(<ImgFigure data={value} ref={'image_'+index}/>)
+      imgFigures.push(<ImgFigure data={value} key={index} ref={'image_'+index} arrange={this.state.imgsArrangeArr[index]}/>)
     });
 
     return (
-      <section className="stage">
+      <section className="stage" ref="stage">
         <section className="image-sec">
           {imgFigures}
         </section>
