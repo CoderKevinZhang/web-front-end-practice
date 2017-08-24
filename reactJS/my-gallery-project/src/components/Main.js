@@ -24,7 +24,7 @@ let imagesLinks = ((imagesDataArray) => {
 
 class ImgFigure extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
@@ -35,9 +35,14 @@ class ImgFigure extends React.Component {
    * @param e: Event Object
    * @return
    */
-  handleClick(e){
+  handleClick(e) {
 
-    this.props.reverse();
+    if (this.props.arrange.isCenter) {
+      this.props.reverse();
+    }
+    else {
+      this.props.goCenter();
+    }
 
     e.stopPropagation();
     e.preventDefault();
@@ -51,12 +56,17 @@ class ImgFigure extends React.Component {
       styleObject = this.props.arrange.pos;
     }
 
-    if(this.props.arrange.rotate){
+    if (this.props.arrange.isCenter) {
+      styleObject['zIndex'] = 11;
+      styleObject['boxShadow'] = '0 0 20px 0 #888888';
+    }
+
+    if (this.props.arrange.rotate) {
 
       let degree = this.props.arrange.rotate;
 
       (['WebkitT', 'MozT', 'msT', 'OT', 't']).forEach((value) => {
-        styleObject[value + 'ransform'] = 'rotate(' + degree +'deg)';
+        styleObject[value + 'ransform'] = 'rotate(' + degree + 'deg)';
       })
     }
 
@@ -122,7 +132,7 @@ class AppComponent extends React.Component {
    * @param deg: degree of rotation
    */
 
-  getRandomDegree(deg){
+  getRandomDegree(deg) {
     return (Math.random() > 0.5 ? '' : '-') + Math.floor(Math.random() * deg);
   }
 
@@ -133,14 +143,21 @@ class AppComponent extends React.Component {
    * @return {Function} is a closure function
    */
 
-  flipImg(index){
+  flipImg(index) {
     return () => {
       let imgsArrangeArr = this.state.imgsArrangeArr;
       imgsArrangeArr[index].isReverse = !imgsArrangeArr[index].isReverse;
 
+      // update the state of the component
       this.setState({
         imgsArrangeArr: imgsArrangeArr
       });
+    }
+  }
+
+  moveCenter(index) {
+    return () => {
+      this.reArrange(index)
     }
   }
 
@@ -164,6 +181,8 @@ class AppComponent extends React.Component {
     // set the position of center image & rotation degree is not required
     let imgArrayCenter = imgsArrangeArr.splice(centerIndex, 1);
     imgArrayCenter[0].pos = centerPos;
+    imgArrayCenter[0].rotate = 0;
+    imgArrayCenter[0].isCenter = true;
 
     // set the position of top image & rotation degree is required
     let topImgNum = Math.floor(Math.random() * 2), // either one or no img on the top area
@@ -177,6 +196,7 @@ class AppComponent extends React.Component {
       };
 
       topImgArray[index].rotate = this.getRandomDegree(30);
+      topImgArray[index].isCenter = false;
     });
 
     // set the position of left & right images & rotation degree is required
@@ -195,6 +215,7 @@ class AppComponent extends React.Component {
       };
 
       imgsArrangeArr[i].rotate = this.getRandomDegree(30);
+      imgsArrangeArr[i].isCenter = false;
     }
 
     // put topImgArray and imgArrayCenter into imgsArrangeArr
@@ -215,15 +236,15 @@ class AppComponent extends React.Component {
 
     //获取舞台的大小
     let stageDOM = ReactDOM.findDOMNode(this.refs.stage),
-      stageW = stageDOM.scrollWidth,
-      stageH = stageDOM.scrollHeight,
+      stageW = stageDOM.clientWidth,
+      stageH = stageDOM.clientHeight,
       halfStageW = Math.floor(stageW / 2),
       halfStageH = Math.floor(stageH / 2);
 
     //获取imgFigure的大小
     let imgFigDOM = ReactDOM.findDOMNode(this.refs.image_0),
-      imgFigW = imgFigDOM.scrollWidth,
-      imgFigH = imgFigDOM.scrollHeight,
+      imgFigW = imgFigDOM.clientWidth,
+      imgFigH = imgFigDOM.clientHeight,
       halfImgW = Math.floor(imgFigW / 2),
       halfImgH = Math.floor(imgFigH / 2);
 
@@ -263,12 +284,17 @@ class AppComponent extends React.Component {
             top: 0
           },
           rotate: 0, // initial the rotation degree of images
-          isReverse: false // initial the reverse status of images
+          isReverse: false, // initiate the reverse status of images
+          isCenter: false // initiate the status of center position of images
         }
       }
 
-      imgFigures.push(<ImgFigure data={value} key={index} ref={'image_' + index}
-                                 arrange={this.state.imgsArrangeArr[index]} reverse={this.flipImg(index)}/>)
+      imgFigures.push(<ImgFigure data={value}
+                                 key={index}
+                                 ref={'image_' + index}
+                                 arrange={this.state.imgsArrangeArr[index]}
+                                 reverse={this.flipImg(index)}
+                                 goCenter={this.moveCenter(index)}/>)
     });
 
     return (
