@@ -23,6 +23,26 @@ let imagesLinks = ((imagesDataArray) => {
 })(imagesData);
 
 class ImgFigure extends React.Component {
+
+  constructor(props){
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  /*
+   * Reverse the image with 180 degree
+   * @param e: Event Object
+   * @return
+   */
+  handleClick(e){
+
+    this.props.reverse();
+
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
   render() {
 
     let styleObject = {};
@@ -40,12 +60,23 @@ class ImgFigure extends React.Component {
       })
     }
 
+    let figureClassName = 'figure-layout';
+    figureClassName += this.props.arrange.isReverse ? ' flipped' : '';
+
     return (
-      <figure className="figure-layout" style={styleObject}>
-        <img src={this.props.data.imageURL} alt={this.props.data.title}/>
-        <figcaption>
-          <h2 className="img-title">{this.props.data.title}</h2>
-        </figcaption>
+      <figure className={figureClassName} style={styleObject} onClick={this.handleClick}>
+        <div className="imgFront">
+          <img src={this.props.data.imageURL} alt={this.props.data.title}/>
+          <figcaption>
+            <h2 className="img-title">{this.props.data.title}</h2>
+          </figcaption>
+        </div>
+        <div className="img-back" onClick={this.handleClick}>
+          <p>
+            {this.props.data.description}
+          </p>
+        </div>
+
       </figure>
     );
   }
@@ -93,6 +124,24 @@ class AppComponent extends React.Component {
 
   getRandomDegree(deg){
     return (Math.random() > 0.5 ? '' : '-') + Math.floor(Math.random() * deg);
+  }
+
+  /*
+   * Flip the image
+   *
+   * @param index: the index of the image
+   * @return {Function} is a closure function
+   */
+
+  flipImg(index){
+    return () => {
+      let imgsArrangeArr = this.state.imgsArrangeArr;
+      imgsArrangeArr[index].isReverse = !imgsArrangeArr[index].isReverse;
+
+      this.setState({
+        imgsArrangeArr: imgsArrangeArr
+      });
+    }
   }
 
   /* Add images to the center
@@ -213,12 +262,13 @@ class AppComponent extends React.Component {
             left: 0,
             top: 0
           },
-          rotate: 0 // initial rotation degree of images
+          rotate: 0, // initial the rotation degree of images
+          isReverse: false // initial the reverse status of images
         }
       }
 
       imgFigures.push(<ImgFigure data={value} key={index} ref={'image_' + index}
-                                 arrange={this.state.imgsArrangeArr[index]}/>)
+                                 arrange={this.state.imgsArrangeArr[index]} reverse={this.flipImg(index)}/>)
     });
 
     return (
