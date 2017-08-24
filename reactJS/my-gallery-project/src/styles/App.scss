@@ -32,7 +32,7 @@ html, body {
         top: 15px;
       }
 
-      perspective: 1800px;
+      perspective: 1800px; // important!
       @at-root {
         /* figure-layout --start*/
         .figure-layout {
@@ -50,7 +50,7 @@ html, body {
 
           cursor: pointer;
           transform-origin: 0 50% 0;
-          transform-style: preserve-3d;
+          transform-style: preserve-3d; // important!
           transition: .6s ease-in-out;
 
           /* flipped --start*/
@@ -100,7 +100,7 @@ html, body {
               -moz-box-sizing: border-box;
               box-sizing: border-box;
 
-              backface-visibility: hidden;
+              backface-visibility: hidden; // important!
 
               p {
                 margin: 0;
@@ -110,7 +110,7 @@ html, body {
               //-moz-transform: rotateY(180deg) translateZ(1px);
               //-ms-transform: rotateY(180deg) translateZ(1px);
               //-o-transform: rotateY(180deg) ;
-              transform: rotateY(180deg) translateZ(1px);
+              transform: rotateY(180deg);
 
             }
           }
