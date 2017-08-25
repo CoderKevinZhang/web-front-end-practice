@@ -312,4 +312,9 @@ class AppComponent extends React.Component {
 
 AppComponent.defaultProps = {};
 
+ReactDOM.render(
+  <AppComponent />,
+  document.getElementById('app')
+);
+
 export default AppComponent;
