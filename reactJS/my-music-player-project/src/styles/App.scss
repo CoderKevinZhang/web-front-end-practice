@@ -51,14 +51,18 @@ header{
         }
 
         .progress-dot{
-          width: 50px;
-          height: 50px;
-          background-image: url("../images/progress-dot.png");
-          background-size: cover;
+          width: 24px;
+          height: 24px;
+          background: {
+            image: url("../images/progress-dot.png");
+            size: 50px 50px;
+            position: -14px -13px;
+          }
           position: absolute;
           top: 50%;
-          margin-top: -25px;
-          left: 75px;
+          margin-top: -12px;
+          left: 88px;
+          cursor: pointer;
         }
       }
     }
