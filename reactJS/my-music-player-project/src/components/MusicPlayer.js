@@ -2,14 +2,25 @@ import React from 'react';
 
 class MusicPlayer extends React.Component {
 
+  constructor(props){
+    super(props);
+
+    this.changeProgress = this.changeProgress.bind(this);
+  }
+
+  changeProgress(e){
+    let progressBar = this.refs.progressBar,
+      progress_bar_left = progressBar.offsetLeft,
+      realProgress = (e.clientX - progress_bar_left) / progressBar.clientWidth;
+
+    this.props.onProgressChange(realProgress);
+  }
+
   render() {
-
-    // this.props.progress is a percentage value
     let leftDistance = this.props.progress * 6 + 88;
-
     return (
       <div className="music-player">
-        <div className="progress-bar">
+        <div className="progress-bar" onClick={this.changeProgress} ref="progressBar">
           <div className="progress" style={{width: `${this.props.progress}%`}}></div>
         </div>
         <div className="progress-dot" style={{left: `${leftDistance}px`}}></div>

@@ -5,6 +5,9 @@ import React from 'react';
 import MusicHeader from './MusicHeader';
 import MusicPlayer from './MusicPlayer';
 
+// set duration of current music
+let duration = '-';
+
 class AppComponent extends React.Component {
 
   constructor(props){
@@ -27,6 +30,7 @@ class AppComponent extends React.Component {
     });
 
     $('#play').bind($.jPlayer.event.timeupdate, (e) => {
+      duration = e.jPlayer.status.duration;
       this.setState({
         progress: e.jPlayer.status.currentPercentAbsolute
       });
@@ -37,11 +41,15 @@ class AppComponent extends React.Component {
     $('#play').unbind($.jPlayer.event.timeupdate);
   }
 
+  onProgressChange(progress){
+    $('#play').jPlayer('play', duration * progress);
+  }
+
   render() {
     return (
       <div>
         <MusicHeader/>
-        <MusicPlayer progress={this.state.progress}/>
+        <MusicPlayer progress={this.state.progress} onProgressChange={this.onProgressChange}/>
       </div>
     )
   }
