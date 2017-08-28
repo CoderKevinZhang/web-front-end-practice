@@ -23,7 +23,7 @@ class AppComponent extends React.Component {
     return (
       <div>
         <MusicHeader/>
-        <MusicPlayer onProgressChange={this.onProgressChange}/>
+        <MusicPlayer/>
       </div>
     )
   }
