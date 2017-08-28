@@ -39,7 +39,6 @@ header{
       top: 50%;
       margin-top: -1px;
       left: 100px;
-      width: 600px;
       height: 4px;
       background-color: gray;
       cursor: pointer;
@@ -47,7 +46,6 @@ header{
         .progress{
           height: inherit;
           width: 0;
-          background-color: #d81e06;
         }
 
         .progress-dot{
