@@ -80,19 +80,18 @@ header{
       }
       .pause{
         margin-left: -145px;
-        display: none;
+        opacity: 0;
       }
       .random{
-        margin-left: 300px;
+        margin-left: 420px;
         opacity: 0;
       }
       .repeat{
         margin-left: -33px;
-        //display: none;
       }
       .repeat-one{
         margin-left: -33px;
-        display: none;
+        opacity: 0;
       }
     }
   }

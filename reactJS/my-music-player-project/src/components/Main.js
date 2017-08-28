@@ -5,13 +5,15 @@ import React from 'react';
 import MusicHeader from './MusicHeader';
 import MusicPlayer from './MusicPlayer';
 
+let musicData = require('../sources/data/music.json');
+
 class AppComponent extends React.Component {
 
   componentDidMount(){
     $('#play').jPlayer({
       ready: function () {
         $(this).jPlayer('setMedia',{
-          mp3: '../sources/mp3/myfriend.mp3'
+          mp3: '../sources/mp3/' + musicData[0].url
         }).jPlayer('play');
       },
       supplied: 'mp3',
