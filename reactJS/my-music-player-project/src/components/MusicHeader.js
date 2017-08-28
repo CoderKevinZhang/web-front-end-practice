@@ -6,7 +6,7 @@ let headerImage = require('../images/icon-music-note.png');
 class MusicHeader extends React.Component {
   render() {
     return (
-        <header>
+        <header style={{opacity: 0}}>
           <img src={headerImage} />
           <h1>Music Player</h1>
         </header>

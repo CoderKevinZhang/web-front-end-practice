@@ -64,5 +64,36 @@ header{
         }
       }
     }
+
+    .player-widgets{
+      a{
+        display: inline-block;
+        color: #222222;
+        margin:{
+          left: 100px;
+          top: 280px;
+        }
+
+        img{
+          height: 30px;
+        }
+      }
+      .pause{
+        margin-left: -145px;
+        display: none;
+      }
+      .random{
+        margin-left: 300px;
+        opacity: 0;
+      }
+      .repeat{
+        margin-left: -33px;
+        //display: none;
+      }
+      .repeat-one{
+        margin-left: -33px;
+        display: none;
+      }
+    }
   }
 }
