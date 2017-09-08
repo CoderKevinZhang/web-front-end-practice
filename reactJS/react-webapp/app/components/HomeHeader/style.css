@@ -4,12 +4,20 @@
 }
 
 #home-header *{
-    font-size: 16px;
     line-height: 1;
 }
 
 #home-header i, #home-header span{
     color: #fff;
+}
+
+#home-header i{
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+#home-header span{
+    font-size: 13px;
 }
 
 .home-header-left {

@@ -22,7 +22,7 @@ input {
 }
 
 .clearFloat::after{
-  display: table;
+  display: block;
   content: "";
   clear: both;
 }
