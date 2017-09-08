@@ -1,28 +1,29 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "微软雅黑","Times New Roman",Georgia,Serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "微软雅黑", "Times New Roman", Georgia, Serif;
 }
 
 body {
-  background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 input {
-  outline: none;
+    outline: none;
+    border: none;
 }
 
-.floatLeft{
-  float: left;
+.floatLeft {
+    float: left;
 }
 
-.floatRight{
-  float: right;
+.floatRight {
+    float: right;
 }
 
-.clearFloat::after{
-  display: block;
-  content: "";
-  clear: both;
+.clearFloat::after {
+    display: block;
+    content: "";
+    clear: both;
 }

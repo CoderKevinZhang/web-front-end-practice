@@ -12,7 +12,7 @@
 }
 
 #home-header i{
-    font-size: 20px;
+    font-size: 18px;
     vertical-align: middle;
 }
 
@@ -24,6 +24,10 @@
     width: 60px;
     text-align: left;
     margin: 5px 0;
+}
+
+.home-header-left i{
+    margin-top: -3px;
 }
 
 .home-header-right {
@@ -50,4 +54,6 @@
 .home-header-middle .search-bar input {
     font-size: 14px !important;
     font-weight: normal;
+    width: 230px;
+    margin-left: 3px;
 }

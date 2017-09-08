@@ -33,7 +33,7 @@ class App extends React.Component {
 
         let cityName = LocalStore.getItem(CITYNAME);
         if(cityName == null){ // cityName === undefine && cityName === null
-            cityName = 'New York';
+            cityName = '深圳';
         }
         this.props.userInfoActions.update({
             cityName: cityName

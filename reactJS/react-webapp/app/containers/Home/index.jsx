@@ -1,6 +1,8 @@
 import React from 'react';
 import HomeHeader from '../../components/HomeHeader/index';
+import Category from '../../components/Category/index';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import {connect} from 'react-redux';
 
 class Home extends React.Component {
 
@@ -13,10 +15,11 @@ class Home extends React.Component {
         return (
             <div>
                 {/*The Header of Main Page*/}
-                <HomeHeader/>
-            </div>
+                <HomeHeader cityName={this.props.userInfo.cityName}/>
 
-            // The Slide Bar of Advertisement
+                {/*The Slide Bar of Advertisement*/}
+                <Category />
+            </div>
 
             // The Special Part of Main Page
 
@@ -26,4 +29,16 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        userInfo: state.userInfo
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
