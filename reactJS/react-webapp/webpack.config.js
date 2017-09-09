@@ -18,8 +18,7 @@ module.exports = {
             { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel' },
             // { test: /\.scss$/, exclude: /node_modules/, loader: 'style!css!postcss!scss' },
             { test: /\.css$/, exclude: /node_modules/, loader: 'style!css!postcss' },
-            { test:/\.(png|gif|jpg|jpeg|bmp)$/i, loader:'url-loader?limit=5000' },  // 限制大小5kb
-            { test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, loader:'url-loader?limit=5000'} // 限制大小小于5k
+            { test: /\.(png|jpg|gif)$/, loader:'url-loader' }  // 限制大小5kb
         ]
     },
 
