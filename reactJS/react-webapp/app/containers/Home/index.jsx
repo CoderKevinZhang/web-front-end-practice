@@ -3,6 +3,7 @@ import HomeHeader from '../../components/HomeHeader/index';
 import Category from '../../components/Category/index';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {connect} from 'react-redux';
+import Ad from "./subpage/Ad";
 
 class Home extends React.Component {
 
@@ -19,6 +20,11 @@ class Home extends React.Component {
 
                 {/*The Slide Bar of Advertisement*/}
                 <Category />
+
+                <div style={{height: '15px'}}></div>
+
+                {/*The Special Part of Main Page*/}
+                <Ad/>
             </div>
 
             // The Special Part of Main Page

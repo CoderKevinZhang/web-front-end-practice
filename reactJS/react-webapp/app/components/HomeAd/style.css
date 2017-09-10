@@ -1,0 +1,26 @@
+#ad-home{
+    background-color: white;
+}
+
+#ad-home h2{
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+#ad-home .ad-home-container{
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+}
+
+#ad-home .ad-home-container .ad-items{
+    width: 33.3%;
+    height: 140px;
+}
+
+#ad-home .ad-home-container .ad-items img{
+    height: 100%;
+    width: 100%;
+}

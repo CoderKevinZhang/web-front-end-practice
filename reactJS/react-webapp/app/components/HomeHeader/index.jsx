@@ -26,7 +26,7 @@ class HomeHeader extends React.Component {
                 <div className="home-header-middle">
                     <div className="search-bar">
                         <i className="fa fa-search fa-flip-horizontal"></i>
-                        <input type="text" placeholder="Enter Key Words"/>
+                        <input type="text" placeholder="输入搜索关键词"/>
                     </div>
                 </div>
             </div>
