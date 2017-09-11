@@ -4,6 +4,7 @@ import Category from '../../components/Category/index';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {connect} from 'react-redux';
 import Ad from "./subpage/Ad";
+import List from "./subpage/List";
 
 class Home extends React.Component {
 
@@ -24,13 +25,11 @@ class Home extends React.Component {
                 <div style={{height: '15px'}}></div>
 
                 {/*The Special Part of Main Page*/}
-                <Ad/>
+                <Ad />
+
+                {/*The Guess You Like Part of Main Page*/}
+                <List cityName={this.props.userInfo.cityName}/>
             </div>
-
-            // The Special Part of Main Page
-
-
-            // The Guess You Like Part of Main Page
         )
     }
 }
