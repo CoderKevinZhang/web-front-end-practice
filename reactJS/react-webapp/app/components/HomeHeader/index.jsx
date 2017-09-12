@@ -1,5 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import {Link} from 'react-router';
 
 import './style.css';
 
@@ -13,10 +14,11 @@ class HomeHeader extends React.Component {
     render(){
         return (
             <div id="home-header" className="clearFloat">
-                <div className="home-header-left floatLeft">
-                    <span>{this.props.cityName}</span>
-                    &nbsp;
-                    <i className="fa fa-angle-down"></i>
+                <div className="home-header-left floatLeft" ref="headLeft">
+                    <Link to="/city">
+                        <span>{this.props.cityName}</span>
+                        <i className="fa fa-angle-down"></i>
+                    </Link>
                 </div>
 
                 <div className="home-header-right floatRight">

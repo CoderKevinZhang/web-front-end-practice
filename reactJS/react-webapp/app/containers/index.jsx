@@ -34,6 +34,7 @@ class App extends React.Component {
         let cityName = LocalStore.getItem(CITYNAME);
         if(cityName == null){ // cityName === undefine && cityName === null
             cityName = '深圳';
+            LocalStore.setItem(CITYNAME, cityName);
         }
         this.props.userInfoActions.update({
             cityName: cityName

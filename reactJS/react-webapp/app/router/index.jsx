@@ -4,6 +4,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import App from '../containers';
 import Home from '../containers/Home/index';
+import City from "../containers/City/index";
 
 class RouterMap extends React.Component {
     constructor(props, context) {
@@ -16,6 +17,7 @@ class RouterMap extends React.Component {
             <Router history={this.props.history}>
                 <Route path='/' components={App}>
                     <IndexRoute components={Home}/>
+                    <Route path='/city' components={City}/>
                 </Route>
             </Router>
         )
